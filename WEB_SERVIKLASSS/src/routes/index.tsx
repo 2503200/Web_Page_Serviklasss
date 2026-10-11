@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { useEffect, useState, type FormEvent } from 'react';
+import { useState, type FormEvent } from 'react';
 import { ArrowRight, ArrowUpRight, BusFront, Check, ChevronRight, Clock3, MapPin, Menu, MessageCircle, Phone, ShieldCheck, Snowflake, Users, X, Package, BriefcaseBusiness, Palmtree, Target, Eye, Armchair, Mail, Route as RouteIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { company, contactUrl } from '@/lib/company';
@@ -95,13 +95,7 @@ function Home() {
 
 // Maps Embed uses only the managed, referrer-restricted public browser key.
 function OfficeMap({ city, query, coords }: { city: string; query: string; coords?: { lat: number; lng: number } | undefined }) {
-  const [authorizedOrigin, setAuthorizedOrigin] = useState(false);
-  useEffect(() => {
-    // Never send a credential-bearing preview hostname to a third-party iframe.
-    setAuthorizedOrigin(window.location.hostname.endsWith('.lovable.app'));
-  }, []);
-  const key = import.meta.env['VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY'];
+  // Mapa embebido de Google Maps sin clave de API (gratuito).
   const place = coords ? `${coords.lat},${coords.lng}` : query;
-  if (!key || !authorizedOrigin) return <div className="bg-secondary p-6 flex items-center gap-3 min-h-32"><MapPin className="text-primary shrink-0" size={26} /><div><strong className="text-primary text-sm">Encuéntranos en {city}</strong><p className="text-muted-foreground text-xs mt-1">Consulta la ubicación con el botón «Ver en Google Maps».</p></div></div>;
-  return <iframe title={`Ubicación de la oficina SERVIKLASSS en ${city}`} src={`https://www.google.com/maps/embed/v1/place?key=${key}&q=${encodeURIComponent(place)}`} loading="lazy" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />;
+  return <iframe title={`Ubicación de la oficina SERVIKLASSS en ${city}`} src={`https://maps.google.com/maps?q=${encodeURIComponent(place)}&z=16&hl=es&output=embed`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />;
 }
