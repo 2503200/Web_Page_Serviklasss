@@ -23,7 +23,7 @@ export const Route = createFileRoute('/')({
     meta: [
       { title: 'SERVIKLASSS S.A. | Transporte Guayaquil – Machala y turismo' },
       { name: 'description', content: 'Viaja entre Guayaquil y Machala con SERVIKLASSS S.A. Transporte intercantonal, turismo y viajes grupales. 13 unidades y cuatro oficinas a tu servicio.' },
-      { property: 'og:title', content: 'SERVIKLASSS S.A. — Viaja seguro entre Guayaquil y Machala' },
+      { property: 'og:title', content: 'SERVIKLASSS S.A. — Viaja seguro entre Guayaquil, Machala, Pasaje y El Guabo' },
       { property: 'og:description', content: 'Comodidad, puntualidad y atención cercana. Reserva tu viaje o cotiza tu próxima aventura en Ecuador.' },
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: '/' },
